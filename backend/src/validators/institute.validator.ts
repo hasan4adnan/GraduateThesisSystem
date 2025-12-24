@@ -12,3 +12,5 @@ export type UpdateInstituteInput = z.infer<typeof updateInstituteSchema>;
 
 
 
+
+

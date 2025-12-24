@@ -10,17 +10,19 @@ npm install
 ```
 
 2. Configure environment variables:
-Create a `.env` file (or use the existing one) with:
+Create a `.env` file in the backend directory with:
 ```
 DB_HOST=localhost
 DB_PORT=3306
-DB_USER=root
-DB_PASSWORD=Hasan199.
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
 DB_NAME=gts
 
 PORT=3007
 NODE_ENV=development
 ```
+
+**Note:** Never commit your `.env` file to version control. See `.env.example` for a template.
 
 3. Make sure MySQL is running and the `gts` database exists with all required tables.
 
@@ -106,6 +108,8 @@ backend/
 - **Zod** - Schema validation
 - **CORS** - Cross-origin resource sharing
 - **dotenv** - Environment variables
+
+
 
 
 
