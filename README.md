@@ -1,86 +1,203 @@
-# React + TypeScript + Vite
+# Graduate Thesis System (GTS)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Graduate Thesis System (GTS) is a full-stack web application designed to manage graduate thesis records in a structured and reliable manner.  
+The system enables universities to manage master data (universities, institutes, people, subject topics) and to handle thesis submission, search, and detailed thesis viewing operations based on a relational database design.
 
-Currently, two official plugins are available:
+This project was developed as part of the **SE 307 – Database Management Systems** course at **Maltepe University**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## Project Information
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+- **Project Title:** Graduate Thesis System (GTS)
+- **Course Code:** SE 307 01  
+- **Course Name:** Database Management Systems  
+- **Instructor:** Dr. Öğr. Üyesi Volkan TUNALI  
+- **University:** Maltepe University  
+- **Department:** Software Engineering (English)  
 
-## Expanding the ESLint configuration
+**Student Information**
+- **Name:** Hasan Muayad Adnan Alsaedi  
+- **Student ID:** 220706802  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Project Overview
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+The Graduate Thesis System (GTS) is designed to store, manage, and query graduate thesis information using a normalized relational database.  
+The system supports:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- Management of universities, institutes, people, and subject topics
+- Submission of graduate theses with mandatory and optional relationships
+- Multi-criteria thesis search functionality
+- Viewing detailed thesis information
+- Dashboard statistics based on database content
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The project emphasizes correct application of database design principles such as normalization, referential integrity, and transactional consistency, and demonstrates how these concepts can be integrated into a real-world web application.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Technologies Used
 
+### Frontend
+- React
+- TypeScript
+- Vite
+- React Router DOM
+- Tailwind CSS
+- React Hook Form
+- Zod
+- date-fns
 
-## Running the Application
+### Backend
+- Node.js
+- Express
+- TypeScript
+- MySQL
+- MySQL2
+- Zod
+- dotenv
+- CORS
 
-**Backend:**
+### Database
+- MySQL (Relational Database Management System)
+
+---
+
+## Project Structure
+
+graduate-thesis-system/
+│
+├── backend/
+│ ├── src/
+│ │ ├── config/
+│ │ ├── controllers/
+│ │ ├── middleware/
+│ │ ├── routes/
+│ │ ├── services/
+│ │ ├── validators/
+│ │ └── index.ts
+│ ├── package.json
+│ └── tsconfig.json
+│
+├── frontend/
+│ ├── src/
+│ │ ├── components/
+│ │ ├── pages/
+│ │ ├── services/
+│ │ ├── types/
+│ │ └── App.tsx
+│ ├── package.json
+│ └── vite.config.ts
+│
+└── README.md
+
+The frontend and backend are intentionally separated to maintain a clean layered architecture and separation of concerns.
+
+---
+
+## System Architecture
+
+The application follows a three-tier architecture:
+
+Frontend (React + TypeScript)
+|
+| REST API (JSON)
+v
+Backend (Node.js + Express)
+|
+| SQL Queries / Transactions
+v
+MySQL Relational Database
+
+- The frontend handles user interaction and presentation.
+- The backend enforces business rules and manages database operations.
+- The database serves as the single source of truth.
+
+---
+
+## Key Features
+
+- **Master Data Management:** CRUD operations for universities, institutes, people, and subject topics
+- **Thesis Management:** Thesis submission, update, deletion, and viewing
+- **Relational Data Handling:** Supervisor assignments, subject topics, and keywords
+- **Advanced Search:** Multi-criteria thesis search with filtering
+- **Dashboard:** Statistical overview of system data
+- **Validation:** Client-side and server-side validation using Zod
+- **Transactions:** Atomic database operations for complex workflows
+
+---
+
+## Database Design
+
+The database schema was designed according to the project requirements and normalized to 3NF.  
+Key tables include:
+
+- University
+- Institute
+- Person
+- Thesis
+- SupervisorAssignment
+- SubjectTopic
+- Thesis_SubjectTopic
+- Keyword
+- Thesis_Keyword
+
+All relationships are enforced using primary keys, foreign keys, and controlled constraints.
+
+---
+
+## How to Run the Project Locally
+
+### Prerequisites
+- Node.js (v18 or later recommended)
+- MySQL Server
+- npm
+
+---
+
+### Backend Setup
+
 ```bash
-cd backend && npm run dev
-```
-
-**Frontend:**
-```bash
+cd backend
+npm install
 npm run dev
 ```
+
+Backend runs on `http://localhost:3007`
+
+Configure database connection using environment variables:  
+Create a `.env` file in the backend directory:
+
+```
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=your_db_user
+DB_PASSWORD=your_db_password
+DB_NAME=your_db_name
+```
+
+### Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend runs on `http://localhost:5173`
+
+The frontend communicates with the backend via REST API.
+
+### Notes
+
+- Environment files (`.env`) are intentionally excluded from version control.
+- A `.env.example` file can be used as a reference for configuration.
+- The project is developed for academic purposes as part of SE 307.
+
+---
+
+## Course Context
+
+This project was developed individually as a term project for the **SE 307 – Database Management Systems** course.  
+It demonstrates the practical application of database design principles taught during the course by integrating them into a functional web-based system.
