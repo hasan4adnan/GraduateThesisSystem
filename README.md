@@ -1,5 +1,7 @@
 # Graduate Thesis System (GTS)
 
+https://github.com/user-attachments/assets/0b3ae559-1018-4acd-a4a8-7f5256a5ae70
+
 Graduate Thesis System (GTS) is a full-stack web application designed to manage graduate thesis records in a structured and reliable manner.  
 The system enables universities to manage master data (universities, institutes, people, subject topics) and to handle thesis submission, search, and detailed thesis viewing operations based on a relational database design.
 
